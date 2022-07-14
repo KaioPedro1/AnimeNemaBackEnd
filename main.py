@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from database import database
 from database import models
 from routers import user, autenticacao, anime, tipoTicket, auditorio,sessoes,poltronas, reservas
+from utilidades import configuracao
 
 models.Base.metadata.create_all(bind=database.engine)
 
