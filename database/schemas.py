@@ -1,6 +1,7 @@
-from typing import Optional
-from pydantic import BaseModel, EmailStr, AnyUrl
 from datetime import datetime
+from typing import Optional
+
+from pydantic import BaseModel, EmailStr, AnyUrl
 
 
 class UserCreate(BaseModel):
@@ -90,7 +91,37 @@ class PoltronasBase(BaseModel):
     sessoes_id: int
 
 class PoltronaOutput(BaseModel):
+    id: int
     numero_poltrona: int
     sessao: SessoesPoltronaOutput
+    class Config:
+        orm_mode = True
+
+class ReservaBase(BaseModel):
+    user_id: int
+    sessao_id: int
+
+class ReservaTicketBase(BaseModel):
+    tipo_ticket_id: int
+    reserva_id: int
+    poltrona_id: int
+
+class ReservaOutput(BaseModel):
+    id: int
+    created_at: datetime
+    user: UserOutput
+    sessao: SessoesPoltronaOutput
+
+    class Config:
+        orm_mode = True
+
+
+class ReservaTicketOutput(BaseModel):
+    id: int
+    reserva_id: int
+    numero_poltrona: int
+    tipo: str
+    valor: float
+
     class Config:
         orm_mode = True

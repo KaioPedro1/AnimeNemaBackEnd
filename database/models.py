@@ -1,8 +1,9 @@
-from sqlalchemy.orm import relationship
-from .database import Base
 from sqlalchemy import Column, Integer, String, ForeignKey, UniqueConstraint
+from sqlalchemy.orm import relationship
+from sqlalchemy.sql.expression import text
 from sqlalchemy.sql.sqltypes import TIMESTAMP, Float, DateTime
-from sqlalchemy.sql.expression import null, text
+
+from .database import Base
 
 
 class User(Base):
@@ -68,8 +69,12 @@ class Reservas(Base):
     sessao_id= Column(Integer, ForeignKey("sessoes.id", ondelete="CASCADE"), nullable=False)
     created_at = Column(TIMESTAMP(timezone=True), nullable = False, server_default=text('now()'))
 
+    user = relationship("User")
+    sessao = relationship("Sessoes")
+
 class Reservas_ticket(Base):
     __tablename__ = "reserva_ticket"
+    __table_args__ = (UniqueConstraint('reserva_id', 'poltrona_id', name='1poltronaPara1reserva'),)
     id = Column(Integer, nullable=False, primary_key=True)
     tipo_ticket_id = Column(Integer, ForeignKey("tipo_ticket.id", ondelete="CASCADE"), nullable=False)
     reserva_id = Column(Integer, ForeignKey("reservas.id", ondelete="CASCADE"), nullable=False)
