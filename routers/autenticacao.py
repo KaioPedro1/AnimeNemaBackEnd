@@ -14,7 +14,8 @@ ACCESS_TOKEN_EXPIRE_MINUTES = configuracao.settings.access_token_expire_minutes
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
 router = APIRouter(
-    prefix="/login"
+    prefix="/login",
+    tags = ['Login']
 )
 
 @router.post("/", response_model= schemas.Token)

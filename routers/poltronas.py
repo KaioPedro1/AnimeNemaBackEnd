@@ -4,7 +4,8 @@ from sqlalchemy.orm import Session
 from database import schemas, database, models
 
 router = APIRouter(
-    prefix="/poltronas"
+    prefix="/poltronas",
+    tags = ['Poltronas']
 )
 
 #terminar usando join

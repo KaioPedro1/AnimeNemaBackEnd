@@ -4,7 +4,8 @@ from sqlalchemy.orm import Session
 from database import schemas, database, models
 
 router = APIRouter(
-    prefix="/tickettype"
+    prefix="/tickettype",
+    tags = ['Ticket']
 )
 
 

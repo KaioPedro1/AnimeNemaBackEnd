@@ -5,7 +5,8 @@ from utilidades import utilidades
 from database import schemas, database, models
 
 router = APIRouter(
-    prefix="/users"
+    prefix="/users",
+    tags = ['Users']
 )
 
 @router.post("/", status_code = status.HTTP_201_CREATED, response_model=schemas.UserOutput)
