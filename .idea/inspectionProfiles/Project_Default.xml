@@ -13,6 +13,8 @@
         <list>
           <option value="LoginScreen.LoginScreen.buttonsFunc" />
           <option value="botoes.conecta_db" />
+          <option value="database.models.login" />
+          <option value="AnimeNemaBackEnd.routers.reservas.*" />
         </list>
       </option>
     </inspection_tool>
