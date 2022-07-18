@@ -19,7 +19,7 @@ class UserOutput(BaseModel):
 
 
 class Token(BaseModel):
-    acces_token: str
+    access_token: str
     token_type: str
 
 
