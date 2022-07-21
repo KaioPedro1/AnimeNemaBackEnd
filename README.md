@@ -5,9 +5,7 @@ Todo o projeto está sendo realizado do 0, desde o design do banco de dados até
 
 Este repositório contém o código fonte do backend da aplicação.
 
-https://anime-nema-v1.herokuapp.com/docs
-
-Algumas das ferramentas utilizadas no desenvolvimento por enquanto:
+Algumas das ferramentas utilizadas no desenvolvimento da API:
 
 1. [FastAPI](https://github.com/tiangolo/fastapi)
 2. [SQLAlchemy](https://github.com/sqlalchemy)
@@ -18,3 +16,4 @@ Algumas das ferramentas utilizadas no desenvolvimento por enquanto:
 
 
 Em desenvolvimento ...
+https://anime-nema-v1.herokuapp.com/docs
