@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6ed67737-3a2c-4285-9b57-07661c3d01e0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/AnimeNemaBackEnd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AnimeNemaBackEnd.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/database/schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routers/autenticacao.py" beforeDir="false" afterPath="$PROJECT_DIR$/routers/autenticacao.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utilidades/configuracao.py" beforeDir="false" afterPath="$PROJECT_DIR$/utilidades/configuracao.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/routers/user.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

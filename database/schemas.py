@@ -7,7 +7,8 @@ from pydantic import BaseModel, EmailStr, AnyUrl
 class UserCreate(BaseModel):
     email: EmailStr
     senha: str
-
+class UserDelete(BaseModel):
+    id: int
 
 class UserOutput(BaseModel):
     id: int
