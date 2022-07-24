@@ -32,7 +32,7 @@ class TipoTicket(Base):
     __tablename__ = "tipo_ticket"
 
     id = Column(Integer, primary_key=True, nullable=False)
-    tipo = Column(String, nullable=False)
+    tipo = Column(String, nullable=False, unique=True)
     valor = Column(Float,  nullable=False)
 
 class Auditorio(Base):
