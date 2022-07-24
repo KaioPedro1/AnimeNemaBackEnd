@@ -32,3 +32,12 @@ def deletar_tipo_ticket(id: int, db: Session = Depends(database.get_db)):
     db.commit()
     return Response(status_code = status.HTTP_204_NO_CONTENT)
 
+@router.put("/{id}", response_model=schemas.TicketTypeOutput)
+def atualizar_anime(id: int, ticket_atualizado: schemas.TicketTypeBase, db: Session = Depends(database.get_db)):
+    ticket_query = db.query(models.TipoTicket).filter(models.TipoTicket.id == id)
+    ticket= ticket_query.first()
+    if not ticket:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Não foi possivel encontrar o ticket Id({id}) no banco de dados")
+    ticket_query.update(ticket_atualizado.dict(), synchronize_session=False)
+    db.commit()
+    return (ticket)
