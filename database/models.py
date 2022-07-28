@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, UniqueConstraint
+from sqlalchemy import Column, Integer, String, ForeignKey, UniqueConstraint, Boolean
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql.expression import text
 from sqlalchemy.sql.sqltypes import TIMESTAMP, Float, DateTime
@@ -19,12 +19,15 @@ class Animes(Base):
     __tablename__ = "animes"
 
     id = Column(Integer, primary_key=True, nullable=False)
+    anichart_id = Column(Integer, unique=True)
     nome = Column(String, nullable = False)
     score_anilist = Column(Integer)
     origem = Column(String)
     descricao_en = Column(String, nullable = False)
     cover_img_url = Column(String, nullable = False)
+    trailer = Column(String)
     banner_cover_img_url = Column(String)
+    conteudo_adulto = Column(Boolean)
     created_at = Column(TIMESTAMP(timezone=True), nullable = False, server_default=text('now()'))
 
 

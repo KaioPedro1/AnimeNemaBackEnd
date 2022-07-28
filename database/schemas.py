@@ -31,6 +31,9 @@ class TokenData(BaseModel):
 class AnimeBase(BaseModel):
     nome: str
     score_anilist: Optional[int] = None
+    anichart_id: Optional[int] = None
+    trailer: Optional[str] = None
+    conteudo_adulto: Optional[bool] = None
     origem: Optional[str] = None
     descricao_en: str
     cover_img_url: AnyUrl

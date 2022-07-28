@@ -18,9 +18,12 @@ def get_all_animes(db: Session = Depends(database.get_db), limit: int = 10, skip
 @router.post("/", status_code = status.HTTP_201_CREATED, response_model=schemas.AnimeOutput)
 def inserir_anime(anime_input: schemas.AnimeBase, db: Session = Depends(database.get_db)):
     novo_anime = models.Animes(**anime_input.dict())
-    db.add(novo_anime)
-    db.commit()
-    db.refresh(novo_anime)
+    try:
+        db.add(novo_anime)
+        db.commit()
+        db.refresh(novo_anime)
+    except: raise HTTPException(status_code=status.HTTP_409_CONFLICT,
+                        detail=f"Anime já existe no banco de dados.")
     return novo_anime
 
 @router.delete("/{id}", status_code = status.HTTP_204_NO_CONTENT)
