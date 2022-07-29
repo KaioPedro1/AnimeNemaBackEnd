@@ -10,7 +10,7 @@ router = APIRouter(
 
 
 @router.get("/", response_model=List[schemas.ReservaOutput])
-def get_all_reservas(db: Session = Depends(database.get_db), limit: int = 10, skip: int = 0):
+def get_all_reservas(db: Session = Depends(database.get_db), limit: int = 100, skip: int = 0):
     reserva = db.query(models.Reservas).limit(limit).offset(skip).all()
     return (reserva)
 #

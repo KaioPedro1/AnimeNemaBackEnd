@@ -10,7 +10,7 @@ router = APIRouter(
 
 
 @router.get("/", response_model=List[schemas.AuditorioOutput])
-def get_all_auditorios(db: Session = Depends(database.get_db), limit: int = 10, skip: int = 0, search: Optional[str]=""):
+def get_all_auditorios(db: Session = Depends(database.get_db), limit: int = 100, skip: int = 0, search: Optional[str]=""):
     auditorios = db.query(models.Auditorio).filter(models.Auditorio.nome.contains(search)).limit(limit).offset(skip).all()
     return (auditorios)
 

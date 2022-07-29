@@ -11,7 +11,7 @@ router = APIRouter(
 #terminar usando join
 
 @router.get("/",response_model= List[schemas.PoltronaOutput])
-def get_all_poltronas(db: Session = Depends(database.get_db), limit: int = 10, skip: int = 0):
+def get_all_poltronas(db: Session = Depends(database.get_db), limit: int = 100, skip: int = 0):
     poltronas = db.query(models.Poltronas).limit(limit).offset(skip).all()
     return (poltronas)
 

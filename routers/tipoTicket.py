@@ -10,7 +10,7 @@ router = APIRouter(
 
 
 @router.get("/", response_model=List[schemas.TicketTypeOutput])
-def get_all_ticket_type(db: Session = Depends(database.get_db), limit: int = 10, skip: int = 0, search: Optional[str]=""):
+def get_all_ticket_type(db: Session = Depends(database.get_db), limit: int = 100, skip: int = 0, search: Optional[str]=""):
     tipo_ticket = db.query(models.TipoTicket).filter(models.TipoTicket.tipo.contains(search)).limit(limit).offset(skip).all()
     return (tipo_ticket)
 

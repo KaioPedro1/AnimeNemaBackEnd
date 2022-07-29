@@ -11,7 +11,7 @@ router = APIRouter(
 
 
 @router.get("/", response_model=List[schemas.SessoesOutput])
-def get_all_sessoes(db: Session = Depends(database.get_db), limit: int = 10, skip: int = 0):
+def get_all_sessoes(db: Session = Depends(database.get_db), limit: int = 100, skip: int = 0):
     sessoes = db.query(models.Sessoes).limit(limit).offset(skip).all()
     return (sessoes)
 
