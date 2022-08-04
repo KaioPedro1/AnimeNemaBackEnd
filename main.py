@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from database import database
 from database import models
-from routers import user, autenticacao, anime, tipoTicket, auditorio,sessoes,poltronas, reservas
+from routers import user, autenticacao, anime, tipoTicket, auditorio,sessoes,poltronas, reservas, slider
 from utilidades import configuracao
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -25,6 +25,7 @@ app.include_router(auditorio.router)
 app.include_router(sessoes.router)
 app.include_router(poltronas.router)
 app.include_router(reservas.router)
+app.include_router(slider.router)
 
 @app.get("/")
 async def root():

@@ -129,3 +129,21 @@ class ReservaTicketOutput(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class SliderHomepageOutput(BaseModel):
+    id: int
+    nome: str
+    cover_img_url: str
+    descricao_en: str
+    posicao_slide: int
+    class Config:
+        orm_mode = True
+
+
+class SliderHomepageInput(BaseModel):
+    anime_id:int
+    posicao_slide:int
+
+    class Config:
+        orm_mode = True

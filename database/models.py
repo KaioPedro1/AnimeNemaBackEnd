@@ -82,3 +82,10 @@ class Reservas_ticket(Base):
     tipo_ticket_id = Column(Integer, ForeignKey("tipo_ticket.id", ondelete="CASCADE"), nullable=False)
     reserva_id = Column(Integer, ForeignKey("reservas.id", ondelete="CASCADE"), nullable=False)
     poltrona_id = Column(Integer, ForeignKey("poltronas.id", ondelete="CASCADE"), nullable=False)
+
+class Slider_homepage(Base):
+    __tablename__ = "carrousel_homepage"
+    __table_args__ = (UniqueConstraint('posicao_slide', name='posicaoUnica'),)
+    id = Column(Integer, nullable=False, primary_key=True)
+    anime_id = Column(Integer, ForeignKey("animes.id", ondelete="CASCADE"), nullable=False)
+    posicao_slide = Column(Integer, nullable=False)
