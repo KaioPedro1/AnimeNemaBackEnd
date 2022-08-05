@@ -12,7 +12,7 @@ router = APIRouter(
 @router.get("/", response_model=List[schemas.SliderHomepageOutput])
 def get_all_animes_carrousel(db: Session = Depends(database.get_db)):
     animes = db.query(models.Slider_homepage.id, models.Slider_homepage.posicao_slide, models.Animes.nome,
-                      models.Animes.cover_img_url, models.Animes.descricao_en)\
+                      models.Animes.cover_img_url, models.Animes.descricao_en, models.Slider_homepage.anime_id)\
         .outerjoin(models.Animes, models.Slider_homepage.anime_id == models.Animes.id)\
         .all()
     return (animes)

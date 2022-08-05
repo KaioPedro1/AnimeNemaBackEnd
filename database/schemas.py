@@ -137,6 +137,7 @@ class SliderHomepageOutput(BaseModel):
     cover_img_url: str
     descricao_en: str
     posicao_slide: int
+    anime_id: int
     class Config:
         orm_mode = True
 
