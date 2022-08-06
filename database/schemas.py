@@ -133,11 +133,11 @@ class ReservaTicketOutput(BaseModel):
 
 class SliderHomepageOutput(BaseModel):
     id: int
-    nome: str
-    cover_img_url: str
-    descricao_en: str
+    nome: Optional[str]= None
+    cover_img_url: Optional[str] = None
+    descricao_en: Optional[str] = None
     posicao_slide: int
-    anime_id: int
+    anime_id: Optional[int] = None
     class Config:
         orm_mode = True
 
