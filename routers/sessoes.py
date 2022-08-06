@@ -39,7 +39,7 @@ def deletar_sessao(id: int, db: Session = Depends(database.get_db)):
     return Response(status_code = status.HTTP_204_NO_CONTENT)
 
 @router.put("/{id}", response_model=schemas.SessoesOutput)
-def atualizar_anime(id: int, sessoes_atualizado: schemas.SessoesBase, db: Session = Depends(database.get_db)):
+def atualizar_sessao(id: int, sessoes_atualizado: schemas.SessoesBase, db: Session = Depends(database.get_db)):
     sessoes_query = db.query(models.Sessoes).filter(models.Sessoes.id == id)
     sessoes= sessoes_query.first()
     if not sessoes:

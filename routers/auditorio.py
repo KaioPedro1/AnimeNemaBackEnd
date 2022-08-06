@@ -24,7 +24,7 @@ def inserir_auditorio(auditorio_input: schemas.AuditorioBase, db: Session = Depe
     return novo_auditorio
 
 @router.delete("/{id}", status_code = status.HTTP_204_NO_CONTENT)
-def deletar_tipo_ticket(id: int, db: Session = Depends(database.get_db)):
+def deletar_auditorio(id: int, db: Session = Depends(database.get_db)):
     auditorio_query = db.query(models.Auditorio).filter(models.Auditorio.id == id)
     if not auditorio_query.first():
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Não foi possivel encontrar o auditório({id}) no banco de dados")
@@ -33,7 +33,7 @@ def deletar_tipo_ticket(id: int, db: Session = Depends(database.get_db)):
     return Response(status_code = status.HTTP_204_NO_CONTENT)
 
 @router.put("/{id}", response_model=schemas.AuditorioOutput)
-def atualizar_anime(id: int, auditorio_atualizado: schemas.AuditorioBase, db: Session = Depends(database.get_db)):
+def atualizar_auditorio(id: int, auditorio_atualizado: schemas.AuditorioBase, db: Session = Depends(database.get_db)):
     auditorio_query = db.query(models.Auditorio).filter(models.Auditorio.id == id)
     auditorio = auditorio_query.first()
     if not auditorio:

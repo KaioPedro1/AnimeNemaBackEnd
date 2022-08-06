@@ -37,7 +37,7 @@ def deletar_tipo_ticket(id: int, db: Session = Depends(database.get_db)):
     return Response(status_code = status.HTTP_204_NO_CONTENT)
 
 @router.put("/{id}", response_model=schemas.TicketTypeOutput)
-def atualizar_anime(id: int, ticket_atualizado: schemas.TicketTypeBase, db: Session = Depends(database.get_db)):
+def atualizar_tipo_ticket(id: int, ticket_atualizado: schemas.TicketTypeBase, db: Session = Depends(database.get_db)):
     try:
         ticket_query = db.query(models.TipoTicket).filter(models.TipoTicket.id == id)
         ticket= ticket_query.first()
