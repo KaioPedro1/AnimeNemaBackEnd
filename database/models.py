@@ -87,5 +87,5 @@ class Slider_homepage(Base):
     __tablename__ = "carrousel_homepage"
     __table_args__ = (UniqueConstraint('posicao_slide', name='posicaoUnica'),)
     id = Column(Integer, nullable=False, primary_key=True)
-    anime_id = Column(Integer, ForeignKey("animes.id", ondelete="CASCADE"), nullable=False)
+    anime_id = Column(Integer, ForeignKey("animes.id", ondelete="SET NULL"))
     posicao_slide = Column(Integer, nullable=False)

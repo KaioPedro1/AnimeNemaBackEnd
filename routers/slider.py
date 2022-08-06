@@ -29,13 +29,14 @@ def inserir_anime_carrousel(anime_input: schemas.SliderHomepageInput, db: Sessio
                         detail=f"Posicao já ocupada no banco de dados")
     return novo_anime
 
-@router.put("/{id}", response_model=schemas.SliderHomepageInput)
-def atualizar_carrousel(id: int, updated_post: schemas.SliderHomepageInput, db: Session = Depends(database.get_db)):
+@router.put("/{posicao_slide}", response_model=schemas.SliderHomepageInput)
+def atualizar_carrousel(posicao_slide: int, updated_post: schemas.SliderHomepageUpdate, db: Session = Depends(database.get_db)):
+    print(updated_post.dict())
     try:
-        anime_query = db.query(models.Slider_homepage).filter(models.Slider_homepage.id == id)
+        anime_query = db.query(models.Slider_homepage).filter(models.Slider_homepage.posicao_slide == posicao_slide)
         anm = anime_query.first()
         if not anm:
-            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Não foi possivel encontrar o anime Id({id}) no banco de dados")
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Não foi possivel encontrar o slide posicao({posicao_slide}) no banco de dados")
         anime_query.update(updated_post.dict(), synchronize_session=False)
         db.commit()
     except: raise HTTPException(status_code=status.HTTP_409_CONFLICT,

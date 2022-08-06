@@ -144,7 +144,13 @@ class SliderHomepageOutput(BaseModel):
 
 class SliderHomepageInput(BaseModel):
     anime_id:int
-    posicao_slide:int
+    posicao_slide:Optional[int] = None
+
+    class Config:
+        orm_mode = True
+
+class SliderHomepageUpdate(BaseModel):
+    anime_id: int
 
     class Config:
         orm_mode = True
