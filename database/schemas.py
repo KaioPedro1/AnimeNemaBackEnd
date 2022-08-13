@@ -138,6 +138,8 @@ class SliderHomepageOutput(BaseModel):
     descricao_en: Optional[str] = None
     posicao_slide: int
     anime_id: Optional[int] = None
+    banner_cover_img_url: Optional[str] = None
+
     class Config:
         orm_mode = True
 
