@@ -16,4 +16,4 @@ Algumas das ferramentas utilizadas no desenvolvimento da API:
 
 
 Em desenvolvimento ...
-https://anime-nema-v1.herokuapp.com/docs
+https://animenemabackendv1.onrender.com/docs
